@@ -15,9 +15,13 @@ Including another URLconf
 """
 from django.conf.urls import url, include
 from django.contrib import admin
-from api.resources import NoteResource
-note_resource = NoteResource()
+from api.resources import *
+cita_resource = CitaResource()
+user_resource = UserResource()
+medico_resource = MedicoResource()
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^api/', include(note_resource.urls)),
+    url(r'^api/', include(cita_resource.urls)),
+    url(r'^api/', include(user_resource.urls)),
+    url(r'^api/', include(medico_resource.urls)),
 ]

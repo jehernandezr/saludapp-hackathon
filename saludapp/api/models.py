@@ -1,26 +1,41 @@
 from django.db import models
 
 
-class RegistroVenta(models.Model):
+
+class User(models.Model):
     #relaciones
-    fiado = models.OneToOneField('usuarios.Fiado', on_delete=models.CASCADE, null=True, blank=True)
-    tienda = models.ForeignKey('inventarios.Tienda', on_delete=models.CASCADE)
+
     #atributos
-    valorVenta = models.FloatField(null=True, blank=True, default=None)
-    fechaVenta = models.DateField(auto_now_add=True)
-    metodoPago = models.CharField(max_length=50)
+    cedula = models.AutoField(primary_key=True)
+    fechaNacimiento = models.DateField(auto_now_add=True)
+    nombre = models.CharField(max_length=50)
+    apellido = models.CharField(max_length=50)
 
     def __str__(self):
-        return '%f, %s, %s' % (self.valorVenta, self.fechaVenta.__str__(), self.metodoPago)
+        return '%s, %s, %s' % (self.cedula.__str__(), self.apellido.__str__(), self.nombre)
 
-class Pedido(models.Model):
+
+
+class Medico(models.Model):
     #relaciones
-    tienda = models.ForeignKey('inventarios.Tienda', on_delete=models.CASCADE)
-    #atributos
-    nPedido = models.AutoField(primary_key=True)
-    fechaPedido = models.DateField(auto_now_add=True)
-    refSeguimiento = models.CharField(max_length=50)
-    estado = models.CharField(max_length=50)
+    cedula = models.AutoField(primary_key=True)
+    fechaNacimiento = models.DateField(auto_now_add=True)
+    nombre = models.CharField(max_length=50)
+    apellido = models.CharField(max_length=50)
 
     def __str__(self):
-        return '%s, %s, %s, %s' % (self.nPedido.__str__(), self.fechaPedido.__str__(), self.refSeguimiento, self.estado)
+        return '%s, %s, %s' % (self.cedula.__str__(), self.apellido.__str__(), self.nombre)
+
+
+class Cita(models.Model):
+    # relaciones
+    medico= models.ForeignKey(Medico, on_delete=models.CASCADE)
+    paciente = models.ForeignKey(User, on_delete=models.CASCADE)
+    # atributos
+    url=models.URLField(max_length=250,blank=True)
+    fechaCita = models.DateTimeField(auto_now_add=False)
+    fechaCreada = models.DateField(auto_now_add=True)
+    tipoCita = models.CharField(max_length=50)
+
+    def __str__(self):
+        return '%s, %s, %s' % (self.tipoCita, self.fechaCita.__str__(), self.paciente)
