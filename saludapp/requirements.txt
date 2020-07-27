@@ -12,3 +12,5 @@ python-mimeparse==1.6.0
 pytz==2018.7
 six==1.14.0
 virtualenv==20.0.20
+twilio==5.7.0
+flask==1.1.2

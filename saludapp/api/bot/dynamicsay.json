@@ -1,0 +1,29 @@
+{
+  "actions": [
+    {
+      "collect": {
+        "name": "reserva",
+        "questions": [
+          {
+            "question": "Cual es tu número de documento?",
+            "name": "cedula",
+            "type": "Twilio.NUMBER"
+          },
+          {
+            "question": "Qué día te gustaría reservar (Ingresalo en formato año-mes-día. Por ejemplo 2020-12-09)?",
+            "name": "dia",
+            "type": "Twilio.DATE"
+          },
+          {
+            "question": "A qué hora te gustaría reservar (Hora militar. Por ejemplo 18:30)?",
+            "name": "hora",
+            "type": "Twilio.TIME"
+          }
+        ],
+        "on_complete": {
+          "redirect": "https://fe41ec2a4aa0.ngrok.io/collect"
+        }
+      }
+    }
+  ]
+}

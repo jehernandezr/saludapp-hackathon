@@ -1,6 +1,7 @@
 from tastypie.resources import ModelResource
-from api.models import *
+from .models import *
 from tastypie.authorization import Authorization
+
 class CitaResource(ModelResource):
     class Meta:
         queryset = Cita.objects.all()
@@ -15,9 +16,9 @@ class MedicoResource(ModelResource):
         authorization = Authorization()
         fields = ['cedula', 'nombre']
 
-class UserResource(ModelResource):
+class PacienteResource(ModelResource):
     class Meta:
-        queryset = User.objects.all()
+        queryset = Paciente.objects.all()
         resource_name = 'user'
         authorization = Authorization()
         fields = ['cedula', 'nombre']
