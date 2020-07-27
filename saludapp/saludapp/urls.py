@@ -14,6 +14,7 @@ Including another URLconf
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
 from django.conf.urls import url, include
+from django.urls import path
 from django.contrib import admin
 from api.resources import *
 cita_resource = CitaResource()
@@ -24,4 +25,6 @@ urlpatterns = [
     url(r'^api/', include(cita_resource.urls)),
     url(r'^api/', include(user_resource.urls)),
     url(r'^api/', include(medico_resource.urls)),
+    path(r'', include('social_django.urls')),
+    path(r'', include('django.contrib.auth.urls')),
 ]
