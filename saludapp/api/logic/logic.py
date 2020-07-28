@@ -3,8 +3,7 @@ import datetime
 from twilio.rest import Client
 
 def createCita(cedula,fecha, hora):
-
-
+    
     usuario = Paciente.objects.get(cedula=cedula)
     fecha = fecha+' '+hora
     format = '%Y-%d-%m %H:%M'
