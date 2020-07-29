@@ -150,7 +150,7 @@ nav a {
 }
 
 
-nav ul li ul li:hover { background: #f8f9fa; }
+nav ul li ul li:hover { background: #ffffff; }
 
 /* Background color change on Hover */
 nav a:hover { 
@@ -545,7 +545,7 @@ h2.heading,h3.heading {
     letter-spacing: 0;
 }
 .choose,.video{
-	background: #f8f9fa;
+	background: #ffffff;
 }
 .f1 h3 {
     font-size: 25px;
