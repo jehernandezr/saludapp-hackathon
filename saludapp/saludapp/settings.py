@@ -77,12 +77,20 @@ WSGI_APPLICATION = 'saludapp.wsgi.application'
 # https://docs.djangoproject.com/en/1.11/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
-}
+     'default': {
+         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+         'NAME': 'aipointmentDB',
+         'USER': 'jonatan',
+         'PASSWORD': 'jonatan18',
+         'HOST': 'aipointment-db.cmcdfndomao9.us-east-1.rds.amazonaws.com',
+         'PORT': '5432',
+     }
+     #'default': {
+     #    'ENGINE': 'django.db.backends.sqlite3',
+     #    'NAME': os.path.join(BASE_DIR, 'db.sqlite3')
+     #}
 
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/1.11/ref/settings/#auth-password-validators
@@ -121,3 +129,14 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
+
+LOGIN_URL = "/login/auth0"
+LOGIN_REDIRECT_URL = "/autenticado"
+LOGOUT_REDIRECT_URL = "https://isis2503-jehernandezr.auth0.com/v2/logout?returnTo=http%3A%2F%2F127.0.0.1:8000"
+SOCIAL_AUTH_TRAILING_SLASH = False # Remove end slash from routes
+SOCIAL_AUTH_AUTH0_DOMAIN = 'isis2503-jehernandezr.auth0.com'
+SOCIAL_AUTH_AUTH0_KEY = 'f4HfrVZkarN07URlqBIF4B5A0R3fTUbd'
+SOCIAL_AUTH_AUTH0_SECRET = 'eWWUsUJasaYtj5lV5MSarBJWx1TRlfxHBzEl3OTFk30L4g524mQROHSuykrKnq6R'
+SOCIAL_AUTH_AUTH0_SCOPE = [ 'openid', 'profile' ]
+AUTHENTICATION_BACKENDS = { 'saludapp.auth0backend.Auth0',
+ 'django.contrib.auth.backends.ModelBackend', }
