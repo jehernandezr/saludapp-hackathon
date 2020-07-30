@@ -131,7 +131,7 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 LOGIN_URL = "/login/auth0"
-LOGIN_REDIRECT_URL = "/autenticado"
+LOGIN_REDIRECT_URL = "/autenticado/api/v1"
 LOGOUT_REDIRECT_URL = "https://isis2503-jehernandezr.auth0.com/v2/logout?returnTo=http%3A%2F%2F127.0.0.1:8000"
 SOCIAL_AUTH_TRAILING_SLASH = False # Remove end slash from routes
 SOCIAL_AUTH_AUTH0_DOMAIN = 'isis2503-jehernandezr.auth0.com'

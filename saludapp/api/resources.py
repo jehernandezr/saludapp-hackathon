@@ -1,4 +1,5 @@
 from api.models import *
+import requests
 from tastypie.authorization import Authorization
 from tastypie.authentication import Authentication
 from tastypie.authentication import OAuthAuthentication
@@ -7,9 +8,9 @@ from saludapp import auth0backend as auth0
 from django.contrib.auth.decorators import login_required
 
 
-
 class CitaResource(ModelResource):
     class Meta:
+
         queryset = Cita.objects.all()
         resource_name = 'cita'
         autentication=OAuthAuthentication()
