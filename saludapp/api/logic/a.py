@@ -8,6 +8,15 @@ import ssl
 from email import encoders
 from email.mime.base import MIMEBase
 
+import os
+import sys
+
+project_home = str(os.path.abspath(os.getcwd())).replace("""\ """.replace(" ",""),"/").replace("/api/logic","")
+if project_home not in sys.path:
+    sys.path.append(project_home)
+os.environ['DJANGO_SETTINGS_MODULE'] = 'saludapp.settings'
+from django.core.wsgi import get_wsgi_application
+application = get_wsgi_application()
 
 
 def sendSMS(link,celular, dia,hora):
@@ -81,4 +90,6 @@ def sendMail(link,usuario,dia,hora):
 
 
 #sendSMS("www.google.com", "3138864366", '9-12-2000', '18:00')
-sendMail("www.google.com",None,'9-12-2000','18:00')
+#sendMail("www.google.com",None,'9-12-2000','18:00')
+
+

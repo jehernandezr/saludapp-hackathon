@@ -3,7 +3,7 @@ from flask import send_file,jsonify, request
 import json
 import os
 import sys
-project_home = u'C:/Users/Carlos/Documents/GitHub/saludapp-hackathon/saludapp'
+project_home = str(os.path.abspath(os.getcwd())).replace("""\ """.replace(" ",""),"/").replace("/api/logic","")
 if project_home not in sys.path:
     sys.path.append(project_home)
 os.environ['DJANGO_SETTINGS_MODULE'] = 'saludapp.settings'
