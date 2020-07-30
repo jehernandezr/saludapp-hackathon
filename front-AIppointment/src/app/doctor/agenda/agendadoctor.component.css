@@ -1,0 +1,31 @@
+header {
+    z-index: 9;
+    width: 100%;
+    font-family: 'Roboto', sans-serif;
+    font-size: .7em;
+}
+
+nav { 
+	margin:0;
+	padding: 0;
+	float: right;
+}
+
+div#logo {
+    float: left;
+}
+
+#logo a {
+	float: left;
+    font-size: .8em;
+    display: initial;
+    margin: 0;
+    letter-spacing: 1px;
+    color: #059D98;
+    font-weight: 800;
+    padding: 3px 0;
+}
+#logo a span {
+    color: #059D98;
+	
+}
