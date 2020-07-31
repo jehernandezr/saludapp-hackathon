@@ -21,7 +21,7 @@
           }
         ],
         "on_complete": {
-          "redirect": "https://fe41ec2a4aa0.ngrok.io/collect"
+          "redirect": "https://ae62291d8085.ngrok.io/collect"
         }
       }
     }

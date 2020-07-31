@@ -13,17 +13,15 @@ def createCita(cedula,fecha, hora):
 
     usuario = Paciente.objects.get(cedula=cedula)
     fecha = fecha+' '+hora
-    format = '%Y-%d-%m %H:%M'
+    format = '%Y-%m-%d %H:%M'
     datetime_str = datetime.datetime.strptime(fecha, format)
-
-    cita = Disponible.objects.filter(fecha=fecha).filter(estado='L')
+    cita = Disponible.objects.filter(fecha=datetime_str).filter(estado='L')
     if cita and usuario:
         medico = cita[0].medico
 
         reserva = Cita(medico=medico,paciente=usuario,disponible=cita[0])
-        setattr(cita, 'estado', 'R')
-        cita.save()
-
+        setattr(cita[0], 'estado', 'R')
+        cita[0].save()
         sendSMS(reserva.url,usuario.celular,fecha,hora)
         sendMail(reserva.url,usuario,fecha,hora)
         reserva.save()

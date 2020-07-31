@@ -27,8 +27,9 @@ def collect():
     cedula = answers['cedula']['answer']
     dia = answers['dia']['answer']
     hora = answers['hora']['answer']
-
+    print("HOLA")
     guardar = createCita(cedula,dia,hora)
+    print("ALOH")
     if guardar:
         message = (
             f'Bien!, he podido reservar la cita al siguiente número de documento {cedula}.'
