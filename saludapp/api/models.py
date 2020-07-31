@@ -15,7 +15,8 @@ class Paciente(models.Model):
     fechaNacimiento = models.DateField(auto_now_add=False)
     nombre = models.CharField(max_length=50)
     apellido = models.CharField(max_length=50)
-    phone = models.CharField(max_length=10)
+    celular = models.CharField(max_length=10)
+    correo = models.CharField(max_length=50)
 
     def __str__(self):
         return '%s, %s, %s' % (self.cedula.__str__(), self.apellido.__str__(), self.nombre)
