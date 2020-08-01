@@ -5,4 +5,3 @@ admin.site.register(Paciente)
 admin.site.register(Medico)
 admin.site.register(Cita)
 admin.site.register(Disponible)
-

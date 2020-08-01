@@ -25,7 +25,7 @@ SECRET_KEY = '4h*+!@v-o7^=zx3j5#%jma1^wm(cie_saf1-oa$w-jgk*@4e16'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['0.0.0.0:8000','50.17.41.244']
+ALLOWED_HOSTS = ['0.0.0.0:8000','50.17.41.244','127.0.0.1']
 
 
 # Application definition
@@ -38,7 +38,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'api',
-    'social_django',
     'tastypie',
 ]
 
@@ -130,13 +129,3 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-LOGIN_URL = "/login/auth0"
-LOGIN_REDIRECT_URL = "/autenticado/api/v1"
-LOGOUT_REDIRECT_URL = "https://isis2503-jehernandezr.auth0.com/v2/logout?returnTo=http%3A%2F%2F127.0.0.1:8000"
-SOCIAL_AUTH_TRAILING_SLASH = False # Remove end slash from routes
-SOCIAL_AUTH_AUTH0_DOMAIN = 'isis2503-jehernandezr.auth0.com'
-SOCIAL_AUTH_AUTH0_KEY = 'f4HfrVZkarN07URlqBIF4B5A0R3fTUbd'
-SOCIAL_AUTH_AUTH0_SECRET = 'eWWUsUJasaYtj5lV5MSarBJWx1TRlfxHBzEl3OTFk30L4g524mQROHSuykrKnq6R'
-SOCIAL_AUTH_AUTH0_SCOPE = [ 'openid', 'profile' ]
-AUTHENTICATION_BACKENDS = { 'saludapp.auth0backend.Auth0',
- 'django.contrib.auth.backends.ModelBackend', }

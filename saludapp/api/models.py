@@ -9,14 +9,14 @@ import datetime
 
 class Paciente(models.Model):
     #relaciones
-    id = models.CharField(max_length=70)
+    user= models.ForeignKey(User, on_delete=models.CASCADE)
     #atributos
     cedula = models.CharField(primary_key=True,max_length=11)
     fechaNacimiento = models.DateField(auto_now_add=False)
     nombre = models.CharField(max_length=50)
     apellido = models.CharField(max_length=50)
-    celular = models.CharField(max_length=10)
-    correo = models.CharField(max_length=50)
+    phone = models.CharField(max_length=11)
+
 
     def __str__(self):
         return '%s, %s, %s' % (self.cedula.__str__(), self.apellido.__str__(), self.nombre)
@@ -24,7 +24,7 @@ class Paciente(models.Model):
 
 
 class Medico(models.Model):
-    id= models.CharField(max_length=70)
+    user= models.ForeignKey(User, on_delete=models.CASCADE)
     cedula = models.CharField(primary_key=True,max_length=11)
     fechaNacimiento = models.DateField(auto_now_add=False)
     nombre = models.CharField(max_length=50)

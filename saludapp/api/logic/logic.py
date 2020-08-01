@@ -34,7 +34,7 @@ def sendSMS(link, celular, dia, hora):
     client = Client(account_sid, auth_token)
 
     message = client.messages.create(
-        body=f'Tu cita ha sido confirmada para el día {dia} a las {hora}. El link para acceder a ella es: {link}',
+        body=f'Tu cita ha sido confirmada para el día {dia}.',
         from_='+17252139009',
         to='+57'+celular
     )
